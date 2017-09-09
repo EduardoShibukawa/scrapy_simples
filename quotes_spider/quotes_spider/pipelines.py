@@ -7,5 +7,7 @@
 
 
 class QuotesSpiderPipeline(object):
-    def process_item(self, item, spider):
+    def process_item(self, item, spider):      
+        if item['author']:
+            item['author'] = item['author'][0].upper()
         return item
