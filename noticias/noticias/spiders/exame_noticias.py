@@ -35,14 +35,14 @@ class ExameNoticiasSpider(Spider):
             yield response.follow(next_page, self.parse)
             
     def parse_exame(self, response):                                        
-        titulo = "".join(
+        titulo = "".join([        
                 response.xpath('//*[@class="article-title"]/text()').extract_first(),
                 '\n' ,
                 response.xpath("//*[@class='article-subtitle']/text()").extract_first()
-        )
+        ])
 
         data_sem_formato = response.xpath('//*[@class="article-date"]/span/text()').extract_first()                    
-        data_atualizacao = re.search('\d{2} \w{3} \d{4}', unformated_date).group(0)        
+        data_atualizacao = re.search('\d{2} \w{3} \d{4}', data_sem_formato).group(0)        
 
         conteudo = response.xpath('//*[@class="article-content"]/p/text()').extract()
 

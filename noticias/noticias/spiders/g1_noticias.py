@@ -34,11 +34,11 @@ class G1NoticiasSpider(Spider):
             yield response.follow(next_page, self.parse)
             
     def parse_g1(self, response):                                        
-        titulo = "".join(
+        titulo = "".join([
                 response.xpath('//*[@class="content-head__title"]/text()').extract_first(),
                 '\n',
                 response.xpath("//*[@class='content-head__subtitle']/text()").extract_first()
-        )
+        ])
         data_atualizacao = response.xpath('//*[@class="content-publication-data__updated"]/time/text()').extract_first()
         conteudo = response.xpath("//*[contains(concat(' ', normalize-space(@class), ' '), 'content-text')]/text()").extract()
 
