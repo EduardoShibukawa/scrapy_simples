@@ -11,11 +11,11 @@ class G1NoticiasSpider(Spider):
     name = 'g1_noticias'
     #allowed_domains = ['g1.globo.com/economia/negocios', 'google.com.br', 'goo.gl']
     #start_urls = ['http://goo.gl/oqrkT7']
-    #start_urls = ['file:///home/eduardo/UEM/GIT/scrapy_simples/data/allintitle_%20petrobras%20site_g1.globo.com_economia_negocios_noticia%20-%20Pesquisa%20Google.html']
+    #start_urls = ['file:///home/eduardoe/UEM/GIT/scrapy_simples/data/allintitle_%20petrobras%20site_g1.globo.com_economia_negocios_noticia%20-%20Pesquisa%20Google.html']
 
     def start_requests(self):
         yield Request(
-            'http://goo.gl/oqrkT7'
+            'https://www.google.com.br/search?q=allintitle%3A+petrobras+site%3Ag1.globo.com%2Feconomia%2Fnegocios%2Fnoticia&client=firefox-b-ab&dcr=0&biw=1600&bih=779&source=lnt&tbs=sbd%3A1%2Ccdr%3A1%2Ccd_min%3A5%2F1%2F2017%2Ccd_max%3A7%2F31%2F2017&tbm='
         )
     
     def format_google_url(self, url):                       
